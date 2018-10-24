@@ -28,7 +28,6 @@ class UpdateVoucher extends Mutation
 			'syarat' => ['name' => 'syarat', 'type' => Type::string()],
 			'tanggal_kadaluarsa' => ['name' => 'tanggal_kadaluarsa', 'type' => Type::string()],
 			'logo_voucher' => ['name' => 'logo_voucher', 'type' => Type::string()],
-			'logo_qr' => ['name' => 'logo_qr', 'type' => Type::string()],
 		];
 	}
 	public function resolve($root, $args)
@@ -42,7 +41,6 @@ class UpdateVoucher extends Mutation
 			isset($args['syarat'])?$voucher->syarat = $args['syarat']:'';
 			isset($args['tanggal_kadaluarsa'])?$voucher->tanggal_kadaluarsa = $args['tanggal_kadaluarsa']:'';
 			isset($args['logo_voucher'])?$voucher->logo_voucher = $args['logo_voucher']:'';
-			isset($args['logo_qr'])?$voucher->logo_qr = $args['logo_qr']:'';
 			$voucher->save();
 			DB::Commit(); 
 			return $voucher; 
